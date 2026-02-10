@@ -1,28 +1,24 @@
-// Smooth scroll (optional)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-});
+const counters = document.querySelectorAll('.stat-number');
 
-// Stats counter with typing effect
-const counters = document.querySelectorAll('.counter');
-
-counters.forEach(counter => {
-  const updateCount = () => {
+const runCounters = () => {
+  counters.forEach(counter => {
     const target = +counter.getAttribute('data-target');
-    const current = +counter.innerText.replace(/,/g, '');
+    let count = 0;
 
-    const increment = Math.ceil(target / 200);
+    const update = () => {
+      const increment = target / 120;
 
-    if (current < target) {
-      counter.innerText = Math.min(current + increment, target).toLocaleString();
-      setTimeout(updateCount, 20);
-    }
-  };
+      if(count < target){
+        count += increment;
+        counter.innerText = Math.floor(count).toLocaleString();
+        setTimeout(update, 20);
+      } else {
+        counter.innerText = target.toLocaleString();
+      }
+    };
 
-  updateCount();
-});
+    update();
+  });
+};
+
+window.addEventListener('load', runCounters);
