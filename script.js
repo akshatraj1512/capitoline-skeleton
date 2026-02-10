@@ -2,6 +2,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ================= MOBILE VIDEO AUTOPLAY FALLBACK ================= */
+
+  const heroVideo = document.getElementById("heroVideo");
+  if (heroVideo) {
+    const playPromise = heroVideo.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay failed, set up user interaction fallback
+        document.addEventListener("click", () => {
+          if (heroVideo.paused) {
+            heroVideo.play().catch(() => {});
+          }
+        }, { once: true });
+      });
+    }
+  }
+
   /* ================= INTERSECTION OBSERVER ================= */
 
   const observerOptions = {

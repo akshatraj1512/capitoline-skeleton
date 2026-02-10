@@ -587,6 +587,30 @@ section{
   margin-top:60px;
 }
 
+/* Mobile platform layout */
+@media(max-width:768px){
+  .platform-row{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+  
+  .platform-logo-box{
+    width:80px;
+    height:80px;
+    margin:0 auto 20px;
+  }
+  
+  .platform-logo-box img{
+    height:56px;
+  }
+  
+  .platforms-grid{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+}
+
 /* ================= CAREERS (LIGHT) ================= */
 
 .careers-section{
@@ -751,7 +775,7 @@ footer h4{
 /* Animate to X */
 
 .menu-toggle.active span:nth-child(1){
-  transform:rotate(45deg) translateY(10.5px);
+  transform:rotate(45deg) translateY(15px);
 }
 
 .menu-toggle.active span:nth-child(2){
@@ -759,7 +783,7 @@ footer h4{
 }
 
 .menu-toggle.active span:nth-child(3){
-  transform:rotate(-45deg) translateY(-10.5px);
+  transform:rotate(-45deg) translateY(-15px);
 }
 
 /* ================= MEGA MENU ================= */
@@ -772,6 +796,10 @@ footer h4{
   pointer-events:none;
   transition:opacity 400ms var(--ease-out);
   z-index:9999;
+  overflow-y:auto;
+  max-height:100vh;
+  -webkit-overflow-scrolling:touch;
+  padding-top:80px;
 }
 
 .mega-menu.open{
@@ -804,8 +832,9 @@ footer h4{
 
 .mega-inner{
   max-width:1200px;
-  margin:120px auto;
+  margin:40px auto;
   padding:0 8%;
+  padding-bottom:40px;
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:70px;
