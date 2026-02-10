@@ -287,6 +287,40 @@ nav a{
   cursor:pointer;
 }
 
+/* DARK MARKETS SECTION */
+
+.markets-section.dark{
+  background:#0a0f1c; /* deep institutional navy */
+}
+
+.markets-section.dark h2{
+  color:#ffffff;
+}
+
+/* cards inside dark section */
+
+.markets-section.dark .market-card{
+  background:#111827;
+  border:1px solid #1f2933;
+}
+
+.markets-section.dark .market-card h3{
+  color:#ffffff;
+}
+
+.markets-section.dark .market-card p{
+  color:#9ca3af;
+}
+
+.markets-section.dark .market-card:hover{
+  box-shadow:0 25px 50px rgba(0,0,0,0.6);
+  transform:translateY(-6px);
+}
+
+.markets-section.dark{
+  border-top:4px solid var(--cap-red);
+}
+
 /* CARDS */
 
 .card-grid{
