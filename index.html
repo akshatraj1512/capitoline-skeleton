@@ -13,7 +13,9 @@
 <!-- ================= HEADER ================= -->
 
 <header class="navbar">
-  <div class="logo">CAPITOLINE</div>
+  <div class="logo">
+  <img src="images/capitoline-logo.png" alt="Capitoline Global Group Logo">
+  </div>
 
   <nav>
     <a href="#">About</a>
@@ -27,118 +29,130 @@
 <!-- ================= HERO ================= -->
 
 <section class="hero">
-
   <video autoplay muted loop playsinline class="hero-video">
-    <source src="https://cdn.coverr.co/videos/coverr-trading-floor-1855/1080p.mp4" type="video/mp4">
+    <source src="https://www.pexels.com/download/video/30445100/" type="video/mp4">
   </video>
 
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
-    <h1>A Proprietary Trading Desk</h1>
-    <p>
-      Active across US power markets and digital assets, supported by
-      in-house research and trading platforms.
-    </p>
+    <h1>A Global Commodities Trading Firm</h1>
+    <p>Deploying capital across US power markets and digital assets, backed by in-house research and trading infrastructure.</p>
 
     <div class="hero-buttons">
-      <a class="btn-primary" href="#">Our Approach</a>
-      <a class="btn-outline" href="#">Platforms</a>
+      <a href="about.html" class="btn-primary">Our Approach</a>
+      <a href="platforms.html" class="btn-outline">Platforms</a>
     </div>
   </div>
-
 </section>
+
 
 <!-- ================= BUILT BY TRADERS ================= -->
 
-<section class="section two-col">
+<section class="built-section reveal">
+  <div class="built-wrapper">
 
-  <div class="text-block">
-    <h2>Built by Traders</h2>
-    <p>
-      Capitoline Global Group is a proprietary trading firm operating in complex,
-      data-driven markets. We deploy our own capital across power and digital asset
-      markets, combining structured research, disciplined execution, and
-      rigorous risk controls.
-    </p>
+    <div class="built-text">
+      <h2>Built by Quant Analysts and Programmers</h2>
+      <p>
+        Capitoline Global Group is a commodities trading firm operating in complex, data-driven markets. 
+        We deploy our own capital across various markets, combining structured research, 
+        disciplined execution, and rigorous risk controls.
+      </p>
 
-    <p>
-      We design and operate our own analytical platforms to support live
-      decision-making and continuous improvement.
-    </p>
+      <div class="pill-grid">
+        <span>Proprietary Capital Trading</span>
+        <span>Quantitative Research</span>
+        <span>Risk-First Frameworks</span>
+        <span>In-House Platforms</span>
+      </div>
+    </div>
 
-    <ul class="pill-list">
-      <li>Proprietary Capital Trading</li>
-      <li>Quantitative Research</li>
-      <li>Risk-First Frameworks</li>
-      <li>In-House Platforms</li>
-    </ul>
+    <div class="built-image">
+      <img src="https://images.pexels.com/photos/12899162/pexels-photo-12899162.jpeg" alt="Trading Desk">
+    </div>
+
   </div>
-
-  <div class="image-block">
-    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt="">
-  </div>
-
 </section>
+
 
 <!-- ================= MARKETS ================= -->
 
-<section class="dark-section">
+<section class="markets-section">
 
-  <h2>Markets We Operate In</h2>
+  <h2>Markets We Serve</h2>
 
-  <div class="card-grid">
+  <div class="markets-grid">
 
-    <div class="market-card">
-      <h3>Power Markets</h3>
-      <p>
-        Active participation across major US ISOs with focus on congestion,
-        load dynamics, and nodal pricing behavior.
-      </p>
+    <div class="market-card" data-market="capital">
+      <h3>Capital Markets</h3>
+      <p>Institutional trading across equities and derivatives.</p>
     </div>
 
-    <div class="market-card">
+    <div class="market-card" data-market="digital">
       <h3>Digital Assets</h3>
-      <p>
-        Trading liquid crypto markets using systematic strategies and
-        real-time risk monitoring.
-      </p>
+      <p>Quant-driven participation in crypto markets.</p>
+    </div>
+
+    <div class="market-card" data-market="risk">
+      <h3>Risk Management</h3>
+      <p>Embedded portfolio and exposure controls.</p>
+    </div>
+
+    <div class="market-card" data-market="data">
+      <h3>Data & Analytics</h3>
+      <p>Market data transformed into intelligence.</p>
+    </div>
+
+    <div class="market-card" data-market="ib">
+      <h3>Investment Banking</h3>
+      <p>Capital markets transaction support.</p>
+    </div>
+
+    <div class="market-card" data-market="energy">
+      <h3>Energy & Commodities</h3>
+      <p>Core focus on power and commodities trading.</p>
     </div>
 
   </div>
 
 </section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <span class="close-btn">&times;</span>
+    <h3 id="lightbox-title"></h3>
+    <p id="lightbox-text"></p>
+  </div>
+</div>
 
 <!-- ================= STATS ================= -->
 
 <section class="stats-section">
-
-  <h2>MWh Traded Since Inception</h2>
+  <h3>MWh Traded Since Inception</h3>
 
   <div class="stats-grid">
-
-    <div class="stat-box">
-      <span class="stat-number" data-target="20113083">0</span>
+    <div class="stat">
+      <span data-count="32965426">0</span>
       <p>Physical Power Traded</p>
     </div>
 
-    <div class="stat-box">
-      <span class="stat-number" data-target="7025674">0</span>
+    <div class="stat">
+      <span data-count="7025674">0</span>
       <p>Financial Power Traded</p>
     </div>
 
-    <div class="stat-box">
-      <span class="stat-number" data-target="6841824">0</span>
+    <div class="stat">
+      <span data-count="6841824">0</span>
       <p>Virtual Power Traded</p>
     </div>
 
-    <div class="stat-box">
-      <span class="stat-number" data-target="1306689405">0</span>
+    <div class="stat">
+      <span data-count="1306689405">0</span>
       <p>Transmission Rights Traded</p>
     </div>
-
   </div>
-
 </section>
 
 <!-- ================= PLATFORMS ================= -->
@@ -187,20 +201,21 @@
 
 <!-- ================= FOOTER ================= -->
 
-<footer>
+<footer class="footer">
 
   <div class="footer-grid">
 
     <div>
-      <h4>Capitoline Global Group</h4>
-      <p>Proprietary Trading Desk</p>
+      <img src="images/Capitoline_logo.png" class="footer-logo">
+      <p>Proprietary trading across power and digital asset markets.</p>
     </div>
 
     <div>
       <h4>Company</h4>
-      <a href="#">About</a>
-      <a href="#">Markets</a>
-      <a href="#">Careers</a>
+      <a href="about.html">About</a>
+      <a href="markets.html">Markets</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
     </div>
 
     <div>
@@ -210,11 +225,16 @@
     </div>
 
     <div>
-      <h4>Contact</h4>
-      <a href="#">info@capitolineglobalgroup.com</a>
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
     </div>
 
   </div>
+
+  <p class="copyright">
+    © 2026 Capitoline Global Group LLC
+  </p>
 
 </footer>
 
