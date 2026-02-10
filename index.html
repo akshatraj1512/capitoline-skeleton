@@ -14,24 +14,74 @@
 <!-- ================= HEADER ================= -->
 
 <header class="navbar">
+
   <div class="logo">
-    <img src="images/capitoline-logo.png" alt="Capitoline Global Group Logo">
+    <img src="images/capitoline-logo.png" alt="Capitoline Global Group">
   </div>
 
-  <nav class="nav-links">
-    <a href="#">About</a>
-    <a href="#">Markets</a>
-    <a href="#">Platforms</a>
-    <a href="#">Careers</a>
-    <a href="#">Contact</a>
-  </nav>
+  <div class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
 </header>
+
+<!-- ================= MEGA MENU ================= -->
+
+<div class="mega-menu" id="megaMenu">
+
+  <div class="mega-inner">
+
+    <!-- COMPANY -->
+    <div class="mega-column">
+      <h4>Company</h4>
+      <a href="#">Who We Are</a>
+      <a href="#">Our Story</a>
+      <a href="#">Careers</a>
+      <a href="#">Mission & Vision</a>
+      <a href="#">Partnerships</a>
+      <a href="#">Testimonials</a>
+      <a href="#">Thought Leadership</a>
+    </div>
+
+    <!-- TRADING -->
+    <div class="mega-column">
+      <h4>Trading</h4>
+      <a href="#">Power Trading</a>
+      <a href="#">Digital Assets</a>
+      <a href="#">Risk Management</a>
+      <a href="#">Capital Markets</a>
+    </div>
+
+    <!-- PRODUCTS & SERVICES -->
+    <div class="mega-column">
+      <h4>Products & Services</h4>
+      <a href="#">Plutus Platform</a>
+      <a href="#">Varro Platform</a>
+      <a href="#">News Aggregator</a>
+      <a href="#">Trading Analytics</a>
+      <a href="#">Portfolio Tools</a>
+      <a href="#">Operations & Implementation</a>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="mega-column">
+      <h4>Connect</h4>
+      <a href="#">Contact Us</a>
+      <a href="#">Careers</a>
+      <a href="#">Support</a>
+    </div>
+
+  </div>
+
+</div>
 
 <!-- ================= HERO ================= -->
 
 <section class="hero">
   <video autoplay muted loop playsinline class="hero-video">
-    <source src="videos/hero.mp4" type="video/mp4">
+    <source src="https://www.pexels.com/download/video/30445100/" type="video/mp4">
   </video>
 
   <div class="hero-overlay"></div>
@@ -50,13 +100,13 @@
   </div>
 </section>
 
-<!-- ================= BUILT BY TRADERS (LIGHT) ================= -->
+<!-- ================= BUILT (LIGHT) ================= -->
 
 <section class="built-section reveal">
   <div class="built-wrapper">
 
     <div class="built-text">
-      <h2>Built by Traders</h2>
+      <h2>Built by Quant Analysts & Programmers</h2>
       <p>
         Capitoline Global Group operates in complex, data-driven markets.
         We deploy proprietary capital using structured research,
@@ -170,22 +220,47 @@
 
 <!-- ================= PLATFORMS (DARK) ================= -->
 
-<section class="platforms-section dark">
-
+<section class="platforms">
   <h2>Our Platforms</h2>
 
   <div class="platforms-grid">
 
-    <div class="platform-card">
-      <h3>Plutus</h3>
-      <p>Crypto trading intelligence for practice, risk analysis, and execution insight.</p>
-      <a href="#">Explore Plutus</a>
+    <div class="platform-card dark">
+      <div class="platform-row">
+
+        <div class="platform-logo-box">
+          <img src="images/plutus_logo_vertical(1) (1).png" alt="Plutus">
+        </div>
+
+        <div class="platform-info">
+          <h3>Plutus</h3>
+          <p>
+            Crypto trading intelligence for simulation, charting,
+            risk evaluation, and execution insight.
+          </p>
+          <a href="#">Explore Plutus</a>
+        </div>
+
+      </div>
     </div>
 
-    <div class="platform-card">
-      <h3>Varro</h3>
-      <p>Power market intelligence covering grid behavior, congestion, and portfolio risk.</p>
-      <a href="#">Explore Varro</a>
+    <div class="platform-card dark">
+      <div class="platform-row">
+
+        <div class="platform-logo-box">
+          <img src="images/varro-logo.png" alt="Varro">
+        </div>
+
+        <div class="platform-info">
+          <h3>Varro</h3>
+          <p>
+            Power market intelligence covering grid behavior,
+            congestion analytics, and portfolio risk.
+          </p>
+          <a href="#">Explore Varro</a>
+        </div>
+
+      </div>
     </div>
 
   </div>
@@ -206,8 +281,10 @@
   <div class="footer-grid">
 
     <div>
-      <img src="images/capitoline-logo.png" class="footer-logo">
-      <p>Proprietary trading across power and digital asset markets.</p>
+      <div class="footer-logo-box">
+        <img src="images/Capitoline_logo.png" alt="Capitoline Global Group">
+      </div>
+      <p>Global commodities trading across diverse markets.</p>
     </div>
 
     <div>
@@ -239,5 +316,16 @@
 </footer>
 
 <script src="script.js"></script>
+
+<!-- ================= LIGHTBOX ================= -->
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <span class="close-btn">&times;</span>
+    <h3 id="lightbox-title"></h3>
+    <p id="lightbox-text"></p>
+  </div>
+</div>
+
 </body>
 </html>

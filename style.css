@@ -69,7 +69,7 @@ p{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  z-index:1000;
+  z-index:10000;
 }
 
 .logo img{
@@ -80,6 +80,53 @@ p{
   margin-left:32px;
   font-weight:500;
   color:#111827;
+}
+
+.menu-toggle{
+  cursor:pointer;
+  font-weight:600;
+}
+
+.mega-menu{
+  position:fixed;
+  top:80px;
+  left:0;
+  width:100%;
+  background:#0a0f1c;
+  color:white;
+  padding:80px 8%;
+  transform:translateY(-20px);
+  opacity:0;
+  pointer-events:none;
+  transition:all .3s ease;
+  z-index:9999;
+}
+
+.mega-menu.open{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+
+.mega-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:80px;
+}
+
+.mega-menu h4{
+  margin-bottom:20px;
+  color:white;
+}
+
+.mega-menu a{
+  display:block;
+  color:#cbd5e1;
+  margin-bottom:10px;
+}
+
+.mega-menu a:hover{
+  color:var(--cap-red);
 }
 
 /* ================= HERO ================= */
@@ -224,6 +271,63 @@ section{
   color:#9ca3af;
 }
 
+.market-card{
+  cursor:pointer;
+  position:relative;
+  z-index:1;
+}
+
+/* ================= LIGHTBOX ================= */
+
+.lightbox{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  background:rgba(0,0,0,0.75);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .3s ease;
+  z-index:99999; 
+}
+
+.lightbox.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.lightbox-content{
+  background:white;
+  padding:60px;
+  max-width:600px;
+  width:90%;
+  border-radius:22px;
+  position:relative;
+}
+
+.lightbox-content h3{
+  font-size:26px;
+  margin-bottom:16px;
+}
+
+.lightbox-content p{
+  line-height:1.7;
+  color:#374151;
+}
+
+.close-btn{
+  position:absolute;
+  top:18px;
+  right:22px;
+  font-size:30px;
+  cursor:pointer;
+}
+
+
 /* ================= STATS (LIGHT) ================= */
 
 .stats-section{
@@ -239,8 +343,20 @@ section{
 }
 
 .market-stats{
-  border-left:3px solid var(--cap-red);
-  padding-left:30px;
+  padding:0 40px;
+}
+
+.stats-market-grid{
+  position:relative;
+}
+
+.market-stats{
+  padding:0 40px;
+  border-left:2px solid var(--cap-red);
+}
+
+.market-stats:first-child{
+  border-left:none;
 }
 
 .market-stats h3{
@@ -263,33 +379,73 @@ section{
 
 /* ================= PLATFORMS (DARK) ================= */
 
-.platforms-section{
-  background:var(--cap-dark);
+.platforms{
+  background:#0a0f1c;
   color:white;
-  text-align:center;
+}
+
+.platform-card{
+  background:#111827;
+  border:1px solid #1f2933;
+  padding:44px;
+  border-radius:24px;
+  transition:all .3s ease;
+}
+
+/* Horizontal layout */
+.platform-row{
+  display:flex;
+  align-items:flex-start;
+  gap:26px;
+}
+
+/* White logo tile */
+.platform-logo-box{
+  background:#ffffff;
+  border-radius:18px;
+  padding:14px;
+  width:72px;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+
+/* Force logo sizing */
+.platform-logo-box img{
+  height:48px;
+  width:auto;
+  max-width:100%;
+}
+
+.platform-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 30px 60px rgba(0,0,0,0.6);
+}
+
+.platform-card h3{
+  color:white;
+}
+
+.platform-card p{
+  color:#cbd5e1;
+}
+
+.platform-card a{
+  color:var(--cap-red);
+  font-weight:600;
+}
+
+.platform-info h3{
+  margin-top:2px;
 }
 
 .platforms-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:40px;
+  gap:64px;
   margin-top:60px;
-}
-
-.platform-card{
-  background:#111827;
-  padding:50px;
-  border-radius:18px;
-}
-
-.platform-card p{
-  color:#9ca3af;
-  margin:18px 0 26px;
-}
-
-.platform-card a{
-  font-weight:600;
-  color:white;
 }
 
 /* ================= CAREERS (LIGHT) ================= */
@@ -318,7 +474,7 @@ section{
 }
 
 .footer-logo{
-  height:140px;
+  height: 150px;
   margin-bottom:18px;
 }
 
@@ -341,6 +497,19 @@ footer h4{
   margin-top:60px;
   color:#6b7280;
   font-size:14px;
+}
+
+.footer-logo-box{
+  background:#ffffff;
+  border-radius:18px;
+  padding:14px;
+  width:fit-content;
+  margin-bottom:18px;
+}
+
+.footer-logo-box img{
+  height:80px;
+  width:auto;
 }
 
 /* ================= REVEAL ANIMATION ================= */
@@ -394,4 +563,94 @@ footer h4{
     display:none;
   }
 
+}
+
+@media(max-width:900px){
+  .stats-market-grid::after{
+    display:none;
+  }
+}
+
+/* ================= HAMBURGER ================= */
+
+.menu-toggle{
+  width:32px;
+  height:24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  transform-origin:center center;
+  height:3px;
+  width:100%;
+  background:#111;
+  border-radius:2px;
+  transition:.3s;
+}
+
+/* Animate to X */
+
+.menu-toggle.active span:nth-child(1){
+  transform:rotate(45deg) translateY(15px);
+}
+
+.menu-toggle.active span:nth-child(2){
+  opacity:0;
+}
+
+.menu-toggle.active span:nth-child(3){
+  transform:rotate(-45deg) translateY(-15px);
+}
+
+/* ================= MEGA MENU ================= */
+
+.mega-menu{
+  position:fixed;
+  inset:0;
+  background:#0a0f1c;
+  opacity:0;
+  pointer-events:none;
+  transition:.4s ease;
+  z-index:9999;
+}
+
+.mega-menu.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.mega-inner{
+  max-width:1200px;
+  margin:120px auto;
+  padding:0 8%;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:70px;
+}
+
+.mega-column h4{
+  color:white;
+  margin-bottom:22px;
+  font-size:18px;
+}
+
+.mega-column a{
+  display:block;
+  color:#cbd5e1;
+  margin-bottom:14px;
+  font-size:15px;
+}
+
+.mega-column a:hover{
+  color:#b91c1c;
+}
+
+@media(max-width:900px){
+  .mega-inner{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
 }

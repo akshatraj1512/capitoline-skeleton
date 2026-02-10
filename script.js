@@ -1,117 +1,116 @@
-/* ================= REVEAL ON SCROLL ================= */
+document.addEventListener("DOMContentLoaded", () => {
 
-const revealElements = document.querySelectorAll(".reveal");
+  /* ================= REVEAL ================= */
 
-function handleReveal() {
-  const triggerPoint = window.innerHeight - 100;
+  const reveals = document.querySelectorAll(".reveal");
 
-  revealElements.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < triggerPoint) {
-      el.classList.add("active");
+  function revealOnScroll(){
+    reveals.forEach(el=>{
+      const top = el.getBoundingClientRect().top;
+      if(top < window.innerHeight - 100){
+        el.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
+
+
+  /* ================= STATS COUNTER ================= */
+
+  const counters = document.querySelectorAll("[data-count]");
+  const statsSection = document.querySelector(".stats-section");
+  let started = false;
+
+  function runCounters(){
+    counters.forEach(counter=>{
+      const target = +counter.dataset.count;
+      let value = 0;
+      const step = target / 150;
+
+      const interval = setInterval(()=>{
+        value += step;
+        if(value >= target){
+          counter.textContent = target.toLocaleString();
+          clearInterval(interval);
+        } else {
+          counter.textContent = Math.floor(value).toLocaleString();
+        }
+      },15);
+    });
+  }
+
+  window.addEventListener("scroll",()=>{
+    if(!statsSection || started) return;
+    if(statsSection.getBoundingClientRect().top < window.innerHeight-100){
+      started = true;
+      runCounters();
     }
   });
-}
-
-window.addEventListener("scroll", handleReveal);
-window.addEventListener("load", handleReveal);
 
 
-/* ================= STATS COUNTER ================= */
+  /* ================= LIGHTBOX ================= */
 
-const counters = document.querySelectorAll("[data-count]");
-let countersStarted = false;
+  const marketData = {
+    capital:{title:"Capital Markets",text:"Institutional trading across equities and derivatives."},
+    digital:{title:"Digital Assets",text:"Quant-driven participation across crypto markets."},
+    risk:{title:"Risk Management",text:"Embedded exposure and portfolio risk frameworks."},
+    data:{title:"Data & Analytics",text:"Market data transformed into intelligence."},
+    ib:{title:"Investment Banking",text:"Capital markets transaction support."},
+    energy:{title:"Energy & Commodities",text:"Power and commodities trading focus."}
+  };
 
-function startCounters() {
-  counters.forEach(counter => {
-    const target = Number(counter.dataset.count);
-    let current = 0;
-    const increment = target / 120;
+  const cards = document.querySelectorAll(".market-card");
+  const lightbox = document.getElementById("lightbox");
+  const lbTitle = document.getElementById("lightbox-title");
+  const lbText = document.getElementById("lightbox-text");
+  const closeBtn = document.querySelector(".close-btn");
 
-    const timer = setInterval(() => {
-      current += increment;
-
-      if (current >= target) {
-        counter.textContent = target.toLocaleString();
-        clearInterval(timer);
-      } else {
-        counter.textContent = Math.floor(current).toLocaleString();
-      }
-    }, 15);
+  cards.forEach(card=>{
+    card.addEventListener("click",()=>{
+      const key = card.dataset.market;
+      lbTitle.textContent = marketData[key].title;
+      lbText.textContent = marketData[key].text;
+      lightbox.classList.add("active");
+      document.body.style.overflow="hidden";
+    });
   });
-}
 
-function checkStatsVisibility() {
-  const statsSection = document.querySelector(".stats-section");
-  if (!statsSection || countersStarted) return;
-
-  const position = statsSection.getBoundingClientRect().top;
-
-  if (position < window.innerHeight - 120) {
-    countersStarted = true;
-    startCounters();
-  }
-}
-
-window.addEventListener("scroll", checkStatsVisibility);
-
-
-/* ================= MARKETS LIGHTBOX ================= */
-
-const marketData = {
-  capital: {
-    title: "Capital Markets",
-    text: "Active participation across global capital markets, supporting institutional trading, execution workflows, and market infrastructure."
-  },
-  digital: {
-    title: "Digital Assets",
-    text: "Quant-driven engagement in digital asset markets with advanced analytics and scalable execution capabilities."
-  },
-  risk: {
-    title: "Risk Management",
-    text: "Embedded risk frameworks providing portfolio-level visibility and disciplined exposure control."
-  },
-  data: {
-    title: "Data & Analytics",
-    text: "Structured data environments transforming complex market data into actionable intelligence."
-  },
-  ib: {
-    title: "Investment Banking",
-    text: "Support across capital raising, transaction analysis, and secondary market operations."
-  },
-  energy: {
-    title: "Energy & Commodities",
-    text: "Focused trading across power and commodity markets driven by market structure expertise."
-  }
-};
-
-const marketCards = document.querySelectorAll(".market-card");
-const lightbox = document.getElementById("lightbox");
-const lightboxTitle = document.getElementById("lightbox-title");
-const lightboxText = document.getElementById("lightbox-text");
-const closeBtn = document.querySelector(".close-btn");
-
-marketCards.forEach(card => {
-  card.addEventListener("click", () => {
-    const key = card.dataset.market;
-    if (!marketData[key]) return;
-
-    lightboxTitle.textContent = marketData[key].title;
-    lightboxText.textContent = marketData[key].text;
-    lightbox.classList.add("active");
+  closeBtn.addEventListener("click",()=>{
+    lightbox.classList.remove("active");
+    document.body.style.overflow="";
   });
+
+  lightbox.addEventListener("click",(e)=>{
+    if(e.target===lightbox){
+      lightbox.classList.remove("active");
+      document.body.style.overflow="";
+    }
+  });
+
+
+/* ================= MEGA MENU ================= */
+
+const menuToggle = document.getElementById("menuToggle");
+const megaMenu = document.getElementById("megaMenu");
+
+let menuOpen = false;
+
+menuToggle.addEventListener("click", () => {
+
+  menuOpen = !menuOpen;
+
+  if(menuOpen){
+    megaMenu.classList.add("open");
+    menuToggle.classList.add("active");
+    document.body.style.overflow = "hidden";
+  } else {
+    megaMenu.classList.remove("open");
+    menuToggle.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
 });
 
-if (closeBtn) {
-  closeBtn.addEventListener("click", () => {
-    lightbox.classList.remove("active");
-  });
-}
-
-if (lightbox) {
-  lightbox.addEventListener("click", e => {
-    if (e.target === lightbox) {
-      lightbox.classList.remove("active");
-    }
-  });
-}
+})
