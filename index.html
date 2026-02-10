@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Capitoline Global Group</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Capitoline Global Group</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -14,10 +15,10 @@
 
 <header class="navbar">
   <div class="logo">
-  <img src="images/capitoline-logo.png" alt="Capitoline Global Group Logo">
+    <img src="images/capitoline-logo.png" alt="Capitoline Global Group Logo">
   </div>
 
-  <nav>
+  <nav class="nav-links">
     <a href="#">About</a>
     <a href="#">Markets</a>
     <a href="#">Platforms</a>
@@ -30,14 +31,17 @@
 
 <section class="hero">
   <video autoplay muted loop playsinline class="hero-video">
-    <source src="https://www.pexels.com/download/video/30445100/" type="video/mp4">
+    <source src="videos/hero.mp4" type="video/mp4">
   </video>
 
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
     <h1>A Global Commodities Trading Firm</h1>
-    <p>Deploying capital across US power markets and digital assets, backed by in-house research and trading infrastructure.</p>
+    <p>
+      Deploying capital across US power markets and digital assets,
+      backed by in-house research and trading infrastructure.
+    </p>
 
     <div class="hero-buttons">
       <a href="about.html" class="btn-primary">Our Approach</a>
@@ -46,22 +50,21 @@
   </div>
 </section>
 
-
-<!-- ================= BUILT BY TRADERS ================= -->
+<!-- ================= BUILT BY TRADERS (LIGHT) ================= -->
 
 <section class="built-section reveal">
   <div class="built-wrapper">
 
     <div class="built-text">
-      <h2>Built by Quant Analysts and Programmers</h2>
+      <h2>Built by Traders</h2>
       <p>
-        Capitoline Global Group is a commodities trading firm operating in complex, data-driven markets. 
-        We deploy our own capital across various markets, combining structured research, 
+        Capitoline Global Group operates in complex, data-driven markets.
+        We deploy proprietary capital using structured research,
         disciplined execution, and rigorous risk controls.
       </p>
 
       <div class="pill-grid">
-        <span>Proprietary Capital Trading</span>
+        <span>Proprietary Trading</span>
         <span>Quantitative Research</span>
         <span>Risk-First Frameworks</span>
         <span>In-House Platforms</span>
@@ -75,8 +78,7 @@
   </div>
 </section>
 
-
-<!-- ================= MARKETS ================= -->
+<!-- ================= MARKETS (DARK) ================= -->
 
 <section class="markets-section dark">
 
@@ -111,23 +113,13 @@
 
     <div class="market-card" data-market="energy">
       <h3>Energy & Commodities</h3>
-      <p>Core focus on power and commodities trading.</p>
+      <p>Power and commodities trading focus.</p>
     </div>
 
   </div>
-
 </section>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <div class="lightbox-content">
-    <span class="close-btn">&times;</span>
-    <h3 id="lightbox-title"></h3>
-    <p id="lightbox-text"></p>
-  </div>
-</div>
-
-<!-- ================= STATS ================= -->
+<!-- ================= STATS (LIGHT) ================= -->
 
 <section class="stats-section">
 
@@ -135,7 +127,6 @@
 
   <div class="stats-market-grid">
 
-    <!-- PJM -->
     <div class="market-stats">
       <h3>PJM</h3>
 
@@ -155,7 +146,6 @@
       </div>
     </div>
 
-    <!-- ERCOT -->
     <div class="market-stats">
       <h3>ERCOT</h3>
 
@@ -176,70 +166,56 @@
     </div>
 
   </div>
-
 </section>
 
-<!-- ================= PLATFORMS ================= -->
+<!-- ================= PLATFORMS (DARK) ================= -->
 
-<section class="section platforms">
+<section class="platforms-section dark">
 
   <h2>Our Platforms</h2>
 
-  <div class="card-grid">
+  <div class="platforms-grid">
 
     <div class="platform-card">
       <h3>Plutus</h3>
-      <p>
-        Crypto trading intelligence for practice, risk analysis,
-        charting, and execution insight.
-      </p>
+      <p>Crypto trading intelligence for practice, risk analysis, and execution insight.</p>
       <a href="#">Explore Plutus</a>
     </div>
 
     <div class="platform-card">
       <h3>Varro</h3>
-      <p>
-        Power market intelligence covering grid behavior, congestion,
-        load forecasts, and portfolio risk.
-      </p>
+      <p>Power market intelligence covering grid behavior, congestion, and portfolio risk.</p>
       <a href="#">Explore Varro</a>
     </div>
 
   </div>
-
 </section>
 
-<!-- ================= CAREERS ================= -->
+<!-- ================= CAREERS (LIGHT) ================= -->
 
-<section class="dark-section careers">
-
+<section class="careers-section">
   <h2>Careers at Capitoline</h2>
-  <p>
-    We are always looking to grow our trading, research,
-    and engineering teams.
-  </p>
-
+  <p>We are always looking to grow our trading, research, and engineering teams.</p>
   <a class="btn-primary" href="#">Explore Roles</a>
-
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!-- ================= FOOTER (DARK) ================= -->
 
 <footer class="footer">
 
   <div class="footer-grid">
 
     <div>
-      <img src="images/Capitoline_logo.png" class="footer-logo">
+      <img src="images/capitoline-logo.png" class="footer-logo">
       <p>Proprietary trading across power and digital asset markets.</p>
     </div>
 
     <div>
       <h4>Company</h4>
-      <a href="about.html">About</a>
-      <a href="markets.html">Markets</a>
-      <a href="careers.html">Careers</a>
-      <a href="contact.html">Contact</a>
+      <a href="#">About</a>
+      <a href="#">Markets</a>
+      <a href="#">Careers</a>
+      <a href="#">Contact</a>
     </div>
 
     <div>
@@ -251,7 +227,7 @@
     <div>
       <h4>Legal</h4>
       <a href="#">Privacy Policy</a>
-      <a href="#">Terms & Conditions</a>
+      <a href="#">Terms</a>
     </div>
 
   </div>

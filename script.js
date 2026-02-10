@@ -1,110 +1,117 @@
-/* ================= REVEAL ANIMATION ================= */
+/* ================= REVEAL ON SCROLL ================= */
 
-const reveals = document.querySelectorAll(".reveal");
+const revealElements = document.querySelectorAll(".reveal");
 
-function revealOnScroll() {
-  reveals.forEach(el => {
+function handleReveal() {
+  const triggerPoint = window.innerHeight - 100;
+
+  revealElements.forEach(el => {
     const top = el.getBoundingClientRect().top;
-    const trigger = window.innerHeight - 100;
-
-    if (top < trigger) {
+    if (top < triggerPoint) {
       el.classList.add("active");
     }
   });
 }
 
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll(); // run once on load
+window.addEventListener("scroll", handleReveal);
+window.addEventListener("load", handleReveal);
 
 
 /* ================= STATS COUNTER ================= */
 
 const counters = document.querySelectorAll("[data-count]");
-let started = false;
+let countersStarted = false;
 
-function runCounters() {
+function startCounters() {
   counters.forEach(counter => {
-    const target = +counter.dataset.count;
-    let count = 0;
-    const step = target / 150;
+    const target = Number(counter.dataset.count);
+    let current = 0;
+    const increment = target / 120;
 
-    const interval = setInterval(() => {
-      count += step;
+    const timer = setInterval(() => {
+      current += increment;
 
-      if (count >= target) {
-        counter.innerText = target.toLocaleString();
-        clearInterval(interval);
+      if (current >= target) {
+        counter.textContent = target.toLocaleString();
+        clearInterval(timer);
       } else {
-        counter.innerText = Math.floor(count).toLocaleString();
+        counter.textContent = Math.floor(current).toLocaleString();
       }
     }, 15);
   });
 }
 
-window.addEventListener("scroll", () => {
-  const section = document.querySelector(".stats-section");
-  if (!section || started) return;
+function checkStatsVisibility() {
+  const statsSection = document.querySelector(".stats-section");
+  if (!statsSection || countersStarted) return;
 
-  const position = section.getBoundingClientRect().top;
-  if (position < window.innerHeight - 100) {
-    started = true;
-    runCounters();
+  const position = statsSection.getBoundingClientRect().top;
+
+  if (position < window.innerHeight - 120) {
+    countersStarted = true;
+    startCounters();
   }
-});
+}
+
+window.addEventListener("scroll", checkStatsVisibility);
+
+
+/* ================= MARKETS LIGHTBOX ================= */
 
 const marketData = {
   capital: {
     title: "Capital Markets",
-    text: "Capitoline operates across global capital markets with a trading-led approach. Our teams support institutional trading, execution workflows, and market infrastructure across equities and derivatives."
+    text: "Active participation across global capital markets, supporting institutional trading, execution workflows, and market infrastructure."
   },
-
   digital: {
     title: "Digital Assets",
-    text: "Active engagement in digital asset markets combining trading insight, quantitative analytics, exchange connectivity, and scalable execution systems."
+    text: "Quant-driven engagement in digital asset markets with advanced analytics and scalable execution capabilities."
   },
-
   risk: {
     title: "Risk Management",
-    text: "Risk frameworks embedded at every stage of the trading process, providing portfolio-level visibility, scenario analysis, and disciplined exposure control."
+    text: "Embedded risk frameworks providing portfolio-level visibility and disciplined exposure control."
   },
-
   data: {
     title: "Data & Analytics",
-    text: "Structured data environments and advanced analytics transforming complex market data into decision-ready trading intelligence."
+    text: "Structured data environments transforming complex market data into actionable intelligence."
   },
-
   ib: {
     title: "Investment Banking",
-    text: "Experience across capital raising, transaction analysis, and secondary market operations supporting institutional trading environments."
+    text: "Support across capital raising, transaction analysis, and secondary market operations."
   },
-
   energy: {
     title: "Energy & Commodities",
-    text: "Core focus on power and commodity markets, combining market structure expertise with analytics-driven trading and risk control."
+    text: "Focused trading across power and commodity markets driven by market structure expertise."
   }
 };
 
-const cards = document.querySelectorAll(".market-card");
+const marketCards = document.querySelectorAll(".market-card");
 const lightbox = document.getElementById("lightbox");
-const lbTitle = document.getElementById("lightbox-title");
-const lbText = document.getElementById("lightbox-text");
+const lightboxTitle = document.getElementById("lightbox-title");
+const lightboxText = document.getElementById("lightbox-text");
 const closeBtn = document.querySelector(".close-btn");
 
-cards.forEach(card=>{
-  card.addEventListener("click",()=>{
+marketCards.forEach(card => {
+  card.addEventListener("click", () => {
     const key = card.dataset.market;
-    lbTitle.innerText = marketData[key].title;
-    lbText.innerText = marketData[key].text;
+    if (!marketData[key]) return;
+
+    lightboxTitle.textContent = marketData[key].title;
+    lightboxText.textContent = marketData[key].text;
     lightbox.classList.add("active");
   });
 });
 
-closeBtn.addEventListener("click",()=>{
-  lightbox.classList.remove("active");
-});
-
-lightbox.addEventListener("click",(e)=>{
-  if(e.target === lightbox){
+if (closeBtn) {
+  closeBtn.addEventListener("click", () => {
     lightbox.classList.remove("active");
-  }
-});
+  });
+}
+
+if (lightbox) {
+  lightbox.addEventListener("click", e => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove("active");
+    }
+  });
+}

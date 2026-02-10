@@ -1,8 +1,10 @@
+/* ================= RESET ================= */
+
 *{
-  box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family: 'Inter', sans-serif;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
 }
 
 body{
@@ -15,40 +17,76 @@ a{
   color:inherit;
 }
 
-.logo img{
-  height:42px;
-  width:auto;
+img{
+  max-width:100%;
+  display:block;
 }
 
-/* NAV */
+/* ================= VARIABLES ================= */
+
+:root{
+  --cap-dark:#0a0f1c;
+  --cap-black:#0b0b0b;
+  --cap-white:#ffffff;
+  --cap-gray:#6b7280;
+  --cap-light:#f7f7f7;
+  --cap-red:#b91c1c;
+}
+
+/* ================= GLOBAL TYPOGRAPHY ================= */
+
+h1{
+  font-size:60px;
+  font-weight:800;
+  line-height:1.1;
+}
+
+h2{
+  font-size:42px;
+  font-weight:700;
+  margin-bottom:50px;
+}
+
+h3{
+  font-size:22px;
+  font-weight:600;
+}
+
+p{
+  font-size:16px;
+  line-height:1.6;
+  color:#374151;
+}
+
+/* ================= HEADER ================= */
 
 .navbar{
   position:fixed;
   top:0;
   width:100%;
-  padding:20px 60px;
-  background:white;
+  padding:22px 8%;
+  background:#ffffff;
   display:flex;
   justify-content:space-between;
   align-items:center;
   z-index:1000;
 }
 
-.logo{
-  font-weight:800;
-  letter-spacing:1px;
+.logo img{
+  height:46px;
 }
 
-nav a{
-  margin-left:30px;
+.nav-links a{
+  margin-left:32px;
   font-weight:500;
+  color:#111827;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero{
-  position:relative;
   height:90vh;
+  position:relative;
   display:flex;
   align-items:center;
   color:white;
@@ -57,7 +95,7 @@ nav a{
 
 .hero-video{
   position:absolute;
-  top:0; left:0;
+  inset:0;
   width:100%;
   height:100%;
   object-fit:cover;
@@ -65,84 +103,56 @@ nav a{
 
 .hero-overlay{
   position:absolute;
-  top:0; left:0;
-  width:100%;
-  height:100%;
+  inset:0;
   background:rgba(0,0,0,0.55);
 }
 
 .hero-content{
   position:relative;
-  max-width:700px;
+  max-width:720px;
   margin-left:8%;
 }
 
-.hero h1{
-  font-size:64px;
-  margin-bottom:20px;
-}
-
 .hero p{
-  font-size:18px;
+  margin-top:18px;
   max-width:520px;
+  color:#e5e7eb;
 }
 
 .hero-buttons{
-  margin-top:30px;
+  margin-top:36px;
   display:flex;
-  gap:15px;
+  gap:18px;
 }
 
-/* BUTTONS */
+/* ================= BUTTONS ================= */
 
 .btn-primary{
-  background:black;
+  background:var(--cap-black);
   color:white;
-  padding:14px 28px;
+  padding:14px 30px;
   border-radius:40px;
+  font-weight:600;
 }
 
 .btn-outline{
   border:1px solid white;
   color:white;
-  padding:14px 28px;
+  padding:14px 30px;
   border-radius:40px;
+  font-weight:600;
 }
 
-/* SECTIONS */
+/* ================= SECTION BASE ================= */
 
-.section{
+section{
   padding:120px 8%;
 }
 
-.two-col{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;
-}
-
-.image-block img{
-  width:100%;
-  border-radius:20px;
-}
-
-.pill-list{
-  display:flex;
-  flex-wrap:wrap;
-  margin-top:30px;
-}
-
-.pill-list li{
-  background:#f3f3f3;
-  padding:10px 18px;
-  border-radius:20px;
-  margin:5px;
-  list-style:none;
-}
+/* ================= BUILT BY TRADERS ================= */
 
 .built-section{
-  padding:120px 8%;
-  background:#f7f7f7;
+  background:var(--cap-light);
 }
 
 .built-wrapper{
@@ -152,59 +162,37 @@ nav a{
   align-items:center;
 }
 
-.built-text h2{
-  font-size:42px;
-  margin-bottom:20px;
-}
-
 .built-text p{
-  font-size:17px;
-  line-height:1.7;
-  color:#333;
+  max-width:520px;
 }
 
 .pill-grid{
   display:flex;
   flex-wrap:wrap;
   gap:12px;
-  margin-top:25px;
+  margin-top:28px;
 }
 
 .pill-grid span{
-  background:#111;
-  color:#fff;
-  padding:10px 16px;
+  background:#111827;
+  color:white;
+  padding:10px 18px;
   border-radius:30px;
-  font-size:14px;
+  font-size:13px;
 }
 
 .built-image img{
-  width: 450px; /* Set the desired width */
-  height: 450px; /* Set the desired height (must match width for a perfect square) */
-  overflow: hidden;
+  width:460px;
+  height:460px;
+  object-fit:cover;
   border-radius:18px;
 }
 
-/* DARK */
-
-.dark-section{
-  background:#0b0b0b;
-  color:white;
-  padding:120px 8%;
-  text-align:center;
-}
-
-/* MARKETS SECTION */
+/* ================= MARKETS (DARK) ================= */
 
 .markets-section{
-  padding:120px 8%;
-  background:#ffffff;
-}
-
-.markets-section h2{
-  font-size:42px;
-  margin-bottom:60px;
-  color:var(--cap-blue);
+  background:var(--cap-dark);
+  color:white;
 }
 
 .markets-grid{
@@ -213,172 +201,41 @@ nav a{
   gap:40px;
 }
 
-/* CARD */
-
 .market-card{
+  background:#111827;
   padding:40px;
-  border-radius:16px;
-  background:#f9fafb;
-  border:1px solid #e5e7eb;
+  border-radius:18px;
+  border:1px solid #1f2933;
   cursor:pointer;
-  transition:all .3s ease;
+  transition:.3s;
 }
 
 .market-card:hover{
   transform:translateY(-6px);
-  box-shadow:0 20px 40px rgba(0,0,0,0.08);
+  box-shadow:0 20px 40px rgba(0,0,0,0.6);
 }
 
 .market-card h3{
+  color:white;
   margin-bottom:10px;
-  color:var(--cap-blue);
 }
 
 .market-card p{
-  color:var(--cap-muted);
-}
-
-/* LIGHTBOX */
-
-.lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.7);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  opacity:0;
-  pointer-events:none;
-  transition:.3s;
-  z-index:9999;
-}
-
-.lightbox.active{
-  opacity:1;
-  pointer-events:auto;
-}
-
-.lightbox-content{
-  background:#ffffff;
-  padding:60px;
-  max-width:600px;
-  width:90%;
-  border-radius:18px;
-  position:relative;
-}
-
-.lightbox-content h3{
-  margin-bottom:16px;
-  color:var(--cap-blue);
-}
-
-.lightbox-content p{
-  color:var(--cap-muted);
-  line-height:1.7;
-}
-
-/* CLOSE BUTTON */
-
-.close-btn{
-  position:absolute;
-  top:20px;
-  right:24px;
-  font-size:28px;
-  cursor:pointer;
-}
-
-/* DARK MARKETS SECTION */
-
-.markets-section.dark{
-  background:#0a0f1c; /* deep institutional navy */
-}
-
-.markets-section.dark h2{
-  color:#ffffff;
-}
-
-/* cards inside dark section */
-
-.markets-section.dark .market-card{
-  background:#111827;
-  border:1px solid #1f2933;
-}
-
-.markets-section.dark .market-card h3{
-  color:#ffffff;
-}
-
-.markets-section.dark .market-card p{
   color:#9ca3af;
 }
 
-.markets-section.dark .market-card:hover{
-  box-shadow:0 25px 50px rgba(0,0,0,0.6);
-  transform:translateY(-6px);
-}
-
-.markets-section.dark{
-  border-top:4px solid var(--cap-red);
-}
-
-/* CARDS */
-
-.card-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:40px;
-  margin-top:60px;
-}
-
-.market-card,
-.platform-card{
-  background:#f6f6f6;
-  padding:40px;
-  border-radius:20px;
-  color:#0b0b0b;
-}
-
-.platform-card a{
-  display:inline-block;
-  margin-top:20px;
-  font-weight:600;
-}
-
-/* STATS */
+/* ================= STATS (LIGHT) ================= */
 
 .stats-section{
-  padding:100px 8%;
+  background:white;
   text-align:center;
-}
-
-.stats-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:40px;
-  margin-top:40px;
-}
-
-.stat span{
-  font-size:42px;
-  font-weight:700;
-}
-
-.stats-section.dark{
-  background:#0a0f1c;
-  color:white;
-  padding:120px 8%;
-}
-
-.stats-section.dark h2{
-  text-align:center;
-  margin-bottom:80px;
-  color:white;
 }
 
 .stats-market-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:80px;
+  margin-top:40px;
 }
 
 .market-stats{
@@ -387,52 +244,71 @@ nav a{
 }
 
 .market-stats h3{
-  font-size:28px;
-  margin-bottom:30px;
-  color:white;
-}
-
-.market-stats .stat{
   margin-bottom:26px;
 }
 
-.market-stats .stat span{
+.stat{
+  margin-bottom:28px;
+}
+
+.stat span{
   font-size:40px;
   font-weight:700;
   color:var(--cap-red);
 }
 
-.market-stats .stat p{
-  color:#cbd5e1;
+.stat p{
   font-size:14px;
-  margin-top:6px;
 }
 
-/* Desktop vertical divider between PJM and ERCOT */
+/* ================= PLATFORMS (DARK) ================= */
 
-@media(min-width:900px){
-  .market-stats:first-child{
-    border-right:3px solid var(--cap-red);
-    padding-right:30px;
-  }
-
-  .market-stats:last-child{
-    border-left:none;
-  }
+.platforms-section{
+  background:var(--cap-dark);
+  color:white;
+  text-align:center;
 }
 
-/* CAREERS */
+.platforms-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:40px;
+  margin-top:60px;
+}
 
-.careers p{
+.platform-card{
+  background:#111827;
+  padding:50px;
+  border-radius:18px;
+}
+
+.platform-card p{
+  color:#9ca3af;
+  margin:18px 0 26px;
+}
+
+.platform-card a{
+  font-weight:600;
+  color:white;
+}
+
+/* ================= CAREERS (LIGHT) ================= */
+
+.careers-section{
+  background:white;
+  text-align:center;
+}
+
+.careers-section p{
   margin:20px 0 40px;
 }
 
-/* FOOTER */
+/* ================= FOOTER (DARK) ================= */
 
 .footer{
-  background:#0a0a0a;
-  color:#fff;
-  padding:80px 8% 40px;
+  background:#0b0b0b;
+  color:white;
+  padding:100px 8% 50px;
 }
 
 .footer-grid{
@@ -441,44 +317,81 @@ nav a{
   gap:60px;
 }
 
+.footer-logo{
+  height:140px;
+  margin-bottom:18px;
+}
+
 .footer a{
+  color:#9ca3af;
+  margin-bottom:10px;
   display:block;
-  color:#aaa;
-  margin-bottom:8px;
-  text-decoration:none;
 }
 
 .footer a:hover{
   color:white;
 }
 
-.footer-logo{
-  height:150px;
-  margin-bottom:15px;
+footer h4{
+  margin-bottom:14px;
 }
 
-/* RESPONSIVE */
-
-@media(max-width:900px){
-  .two-col,
-  .card-grid,
-  .stats-grid,
-  .footer-grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero h1{
-    font-size:42px;
-  }
+.copyright{
+  text-align:center;
+  margin-top:60px;
+  color:#6b7280;
+  font-size:14px;
 }
+
+/* ================= REVEAL ANIMATION ================= */
 
 .reveal{
   opacity:0;
   transform:translateY(40px);
-  transition:all 0.9s ease;
+  transition:0.9s ease;
 }
 
 .reveal.active{
   opacity:1;
   transform:translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1024px){
+
+  h1{font-size:46px;}
+  h2{font-size:34px;}
+
+  .built-wrapper,
+  .markets-grid,
+  .platforms-grid,
+  .stats-market-grid,
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-content{
+    margin-left:6%;
+  }
+
+}
+
+@media(max-width:640px){
+
+  section{
+    padding:90px 6%;
+  }
+
+  h1{font-size:36px;}
+  h2{font-size:30px;}
+
+  .navbar{
+    padding:18px 6%;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
 }
