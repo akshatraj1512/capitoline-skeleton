@@ -750,6 +750,17 @@ footer h4{
   .stats-market-grid::after{
     display:none;
   }
+
+  .market-stats{
+    border-left:none;
+    border-top:2px solid var(--cap-red);
+    padding:40px 0 0 0;
+  }
+
+  .market-stats:first-child{
+    border-top:none;
+    padding-top:0;
+  }
 }
 
 /* ================= HAMBURGER ================= */
@@ -780,6 +791,7 @@ footer h4{
 
 .menu-toggle.active span:nth-child(2){
   opacity:0;
+  visibility:hidden;
 }
 
 .menu-toggle.active span:nth-child(3){

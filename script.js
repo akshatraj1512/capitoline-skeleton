@@ -6,16 +6,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const heroVideo = document.getElementById("heroVideo");
   if (heroVideo) {
+    // Add error handling for video loading
+    heroVideo.addEventListener("error", () => {
+      console.warn("Video failed to load");
+    });
+
+    // Try to play video
     const playPromise = heroVideo.play();
     if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        // Autoplay failed, set up user interaction fallback
-        document.addEventListener("click", () => {
-          if (heroVideo.paused) {
-            heroVideo.play().catch(() => {});
-          }
-        }, { once: true });
-      });
+      playPromise
+        .then(() => {
+          // Video is playing
+        })
+        .catch(() => {
+          // Autoplay failed, set up user interaction fallback
+          document.addEventListener("click", () => {
+            if (heroVideo.paused) {
+              heroVideo.play().catch(() => {});
+            }
+          }, { once: true });
+        });
     }
   }
 
