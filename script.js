@@ -176,12 +176,36 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ================= LIGHTBOX ================= */
 
   const marketData = {
-    capital: { title: "Capital Markets", text: "Institutional trading across equities and derivatives." },
-    digital: { title: "Digital Assets", text: "Quant-driven participation across crypto markets." },
-    risk: { title: "Risk Management", text: "Embedded exposure and portfolio risk frameworks." },
-    data: { title: "Data & Analytics", text: "Market data transformed into intelligence." },
-    ib: { title: "Investment Banking", text: "Capital markets transaction support." },
-    energy: { title: "Energy & Commodities", text: "Power and commodities trading focus." }
+    capital: { 
+      title: "Capital Markets", 
+      cardText: "Institutional trading across equities and derivatives.",
+      lightboxText: "We engage actively in digital asset markets, combining trading insight with advanced analytics and infrastructure. Our capabilities cover exchange connectivity, wallet integrations, market data ingestion, and quantitative trading systems across major cryptocurrencies and digital instruments. The focus remains on execution clarity, risk discipline, and scalable market access." 
+    },
+    digital: { 
+      title: "Digital Assets", 
+      cardText: "Quant-driven participation across crypto markets.",
+      lightboxText: "Risk management is embedded at every level of our trading operations. Capitoline applies structured frameworks to monitor market, credit, liquidity, and exposure risks across portfolios. Advanced analytics and scenario modelling support informed decision-making, ensuring risk visibility and control across changing market conditions." 
+    },
+    risk: { 
+      title: "Risk Management", 
+      cardText: "Embedded exposure and portfolio risk frameworks.",
+      lightboxText: "Risk management is embedded at every level of our trading operations. Capitoline applies structured frameworks to monitor market, credit, liquidity, and exposure risks across portfolios. Advanced analytics and scenario modelling support informed decision-making, ensuring risk visibility and control across changing market conditions." 
+    },
+    data: { 
+      title: "Data & Analytics", 
+      cardText: "Market data transformed into intelligence.",
+      lightboxText: "High-quality data underpins effective trading decisions. Capitoline develops and operates structured data environments that consolidate market, trade, and risk information into actionable intelligence. Through advanced analytics and disciplined data governance, complex market data is transformed into decision-ready insights." 
+    },
+    ib: { 
+      title: "Investment Banking", 
+      cardText: "Capital markets transaction support.",
+      lightboxText: "Capitoline’s experience extends across investment banking and market infrastructure workflows, including capital raising, transaction analysis, and secondary market operations. Our focus lies in supporting trading, pricing, and risk functions that underpin capital markets activity across equities, fixed income, currencies, and commodities." 
+    },
+    energy: { 
+      title: "Energy & Commodities", 
+      cardText: "Power and commodities trading focus.",
+      lightboxText: "Energy and commodities form a core focus of Capitoline’s trading operations. We operate across power and commodity markets with deep understanding of market structure, congestion, pricing dynamics, and regulatory frameworks. Advanced analytics and trading systems support position visibility, risk management, and execution across physical and financial markets." 
+    }
   };
 
   const cards = document.querySelectorAll(".market-card");
@@ -194,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
     card.addEventListener("click", () => {
       const key = card.dataset.market;
       lbTitle.textContent = marketData[key].title;
-      lbText.textContent = marketData[key].text;
+      lbText.textContent = marketData[key].lightboxText;
       lightbox.classList.add("active");
       document.body.style.overflow = "hidden";
     });
