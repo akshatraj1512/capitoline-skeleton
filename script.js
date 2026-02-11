@@ -222,4 +222,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  /* ================= JUMP TO TOP BUTTON ================= */
+
+  const jumpToTopBtn = document.getElementById("jumpToTopBtn");
+
+  // Show/hide button based on scroll position
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      jumpToTopBtn.classList.add("show");
+    } else {
+      jumpToTopBtn.classList.remove("show");
+    }
+  });
+
+  // Smooth scroll to top
+  jumpToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
 });

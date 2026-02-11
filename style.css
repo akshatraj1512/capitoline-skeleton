@@ -876,6 +876,52 @@ footer h4{
   }
 }
 
+/* ================= JUMP TO TOP BUTTON ================= */
+
+.jump-to-top{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  background:var(--cap-red);
+  color:var(--cap-white);
+  border:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity 300ms var(--ease-out), visibility 300ms var(--ease-out), transform 300ms var(--ease-out);
+  z-index:999;
+  box-shadow:0 4px 12px rgba(185, 28, 28, 0.3);
+}
+
+.jump-to-top:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 16px rgba(185, 28, 28, 0.4);
+}
+
+.jump-to-top.show{
+  opacity:1;
+  visibility:visible;
+}
+
+.jump-to-top svg{
+  stroke:white;
+}
+
+@media(max-width:640px){
+  .jump-to-top{
+    bottom:20px;
+    right:20px;
+    width:48px;
+    height:48px;
+  }
+}
+
 /* ================= ACCESSIBILITY - REDUCED MOTION ================= */
 
 @media(prefers-reduced-motion:reduce){
