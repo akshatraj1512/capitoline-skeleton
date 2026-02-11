@@ -933,7 +933,11 @@ footer h4{
     transition-duration:0.01ms !important;
   }
   
-  .hero-video{
-    transform:none;
+  .hero-video,
+  .built-image,
+  .markets-section,
+  .platform-card{
+    transform: none !important;
+    will-change: auto;
   }
 }
